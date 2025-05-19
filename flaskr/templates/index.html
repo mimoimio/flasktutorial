@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="h-[100dvh]">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta favicon="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+    <title>Flask App</title>
+</head>
+
+<body class="h-full p-4">
+    <main class="max-w-2xl mx-auto ">
+        <nav class="flex justify-between items-center">
+            <h1 class="text-2xl">Helloi!</h1>
+            <div class="flex  gap-4 animate-pulse">
+                <a href="{{ url_for('auth.logout')}}"
+                    class="border flex w-fit rounded-sm px-2 bg-foreground text-background border-background">
+                    LogOut</a>
+            </div>
+        </nav>
+    </main>
+</body>
+
+</html>

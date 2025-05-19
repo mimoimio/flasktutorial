@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="h-[100dvh]">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Flaskr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+</head>
+
+<body class="h-full bg-background text-foreground">
+    <nav class="flex justify-between items-center border-b p-4">
+        <h1>Flaskr</h1>
+        <ul class="flex gap-4">
+            {% if g.user %}
+            <li><span>{{ g.user['username'] }}</span></li>
+            <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+            {% else %}
+            <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <main class="max-w-2xl mx-auto">
+        <header>
+            <h1 class="text-2xl">{% block header %}{% endblock %}</h1>
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+
+</html>

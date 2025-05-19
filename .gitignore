@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Flask instance folder (contains secrets, DB, etc.)
+instance/
+.env
+*.env
+
+# Node/Tailwind
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Compiled CSS (optional, if you want to build on deploy)
+flaskr/static/output.css
