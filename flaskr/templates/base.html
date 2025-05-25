@@ -10,20 +10,24 @@
 
 <body class="h-full bg-background text-foreground">
     <nav class="flex justify-between items-center border-b p-4">
-        <h1>Flaskr</h1>
+        <h1 class="text-2xl ">Flaskr</h1>
         <ul class="flex gap-4">
             {% if g.user %}
+            <li class="px-2 rounded-sm bg-accent border-b"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="px-2 rounded-sm bg-accent border-b"><a href="{{ url_for('redblacktree.index') }}">RBTree</a></li>
             <li><span>{{ g.user['username'] }}</span></li>
-            <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+            <li class="px-2 rounded-sm bg-destructive text-background">
+                <a href="{{ url_for('auth.logout') }}">Log Out</a>
+            </li>
             {% else %}
             <li><a href="{{ url_for('auth.register') }}">Register</a></li>
             <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
             {% endif %}
         </ul>
     </nav>
-    <main class="max-w-2xl mx-auto">
+    <main class="max-w-2xl mx-auto flex flex-col items-center justify-center">
         <header>
-            <h1 class="text-2xl">{% block header %}{% endblock %}</h1>
+            <h1 class="text-2xl py-4 mb-4">{% block header %}{% endblock %}</h1>
         </header>
         {% for message in get_flashed_messages() %}
         <div class="flash">{{ message }}</div>
